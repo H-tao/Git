@@ -57,6 +57,10 @@ git push origin test:new_test
 
 # 重命名分支，重命名的是heads下的分支
 git branch -m old_name new_name
+
+# 删除所有名字以 temp 开头的分支（多加两个空格是因为 git branch 输出结果带有空格）
+git branch | grep -E "^  temp" | xargs git branch -d
+git branch | grep -E "^  temp" | xargs git branch -D	# 强制删除
 ```
 
 `merge` 默认会将分支与***当前分支***合并。当前分支指的是 `HEAD` 指向的分支，该分支的指向可以在
