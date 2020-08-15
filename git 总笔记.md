@@ -395,7 +395,9 @@ Untracked files:
 
 
 
-### git shh-key
+### git shh-key的配置
+
+Linux和Windows都适用
 
 ```bash
 https://blog.csdn.net/felicity294250051/article/details/53606158
@@ -414,13 +416,13 @@ https://blog.csdn.net/felicity294250051/article/details/53606158
 ## -f 指定密钥文件存储文件名。
 [root@CentOS7 .ssh]# ssh-keygen -t rsa -C "Coder@github.com"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/root/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
+Enter file in which to save the key (/home/root/.ssh/id_rsa): 	# 直接回车
+Enter passphrase (empty for no passphrase): 					# 直接回车
+Enter same passphrase again: 									# 直接回车
 Your identification has been saved in /home/root/.ssh/id_rsa.
 Your public key has been saved in /home/root/.ssh/id_rsa.pub.
 The key fingerprint is:
-SHA256:W4T2z7UXooFbTL+SbQtktA1+tptXlnlYG2OivOGQnsY Coder@github.com
+SHA256:... Coder@github.com
 The key's randomart image is:
 +---[RSA 2048]----+
 |                 |
