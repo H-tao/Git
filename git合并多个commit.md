@@ -18,18 +18,30 @@
 >
 >295ac3b842b4ecb6eff1c9954a281a4606a8bc84		# 别人改的
 
+都需要开启强制合入的选项。
 
+**Settings -> Repository -> Protected Branches -> Protected branch （找到分支） -> Unprotect**
 
 第一种方法：
 
 ```bash
+# 查看前10个commit
+git log -10
+# 从版本库恢复文件到暂存区，不改动工作区的内容
 git reset --soft 295ac3b842b4ecb6eff1c9954a281a4606a8bc84
+# add已经跟踪的文件
 git add -u
+# 提交
 git commit -m "修改信息"
+# 强制push以替换远程仓的commitID
 git push --force
 ```
 
-需要开启强制合入的选项。
+第二种方法：git rebase
+
+git rebase 会临时创建一个新分支进行，**如果出错了**，可以 `git checkout 原分支名` 之后重新 git rebase。
+
+<https://blog.csdn.net/Al_assad/article/details/81145856> 
 
 ### 1. git log 查看 commit ID
 
