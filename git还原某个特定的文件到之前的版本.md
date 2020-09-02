@@ -16,13 +16,13 @@ git commit -m "hellopython版本回退" hellopython.py
 
 ```bash
 $ git log helloworld.py                                                           commit 3a74c22e0db4c704a3e72f6518ee77266d6cdd19
-Author: swx944363 <songhaitao2@huawei.com>
+Author: Spade_
 Date:   Tue Sep 1 20:37:58 2020 +0800
 
     update3
 
 commit 643267ac028cc14926e91a6c962dd98ee0b1b049
-Author: swx944363 <songhaitao2@huawei.com>
+Author: Spade_
 Date:   Thu Aug 13 15:29:47 2020 +0800
 
     update2
@@ -34,13 +34,13 @@ Date:   Wed Aug 12 16:18:20 2020 +0800
     update1
 
 commit 1306649d2f883e8667296ee723076af04d3f902d
-Author: swx944363 <songhaitao2@huawei.com>
+Author: Spade_
 Date:   Wed Aug 12 15:44:12 2020 +0800
 
     2020-08-15 15:44
 
 commit 5fa6aff86d8d4ad5390a78261dbeedc913eabbf5
-Author: swx944363 <songhaitao2@huawei.com>
+Author: Spade_
 Date:   Fri Jun 19 09:23:59 2020 +0800
 
     加入执行时间
