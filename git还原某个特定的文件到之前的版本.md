@@ -10,7 +10,7 @@ git checkout commitID hellopython.py
 git commit -m "hellopython版本回退" hellopython.py
 ```
 
-### 1. 操作记录
+### 1. 使用示例
 
 #### 1. git log 查看版本
 
