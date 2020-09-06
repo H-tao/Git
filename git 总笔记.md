@@ -24,7 +24,8 @@ git reflog
 
 # 工作区，版本库和暂存区
 git add		# 把工作区的修改放入暂存区
-git commit	# 把暂存区的修改做一次版本记录
+git add -u	# 只add已经追踪过的文件
+git commit -m "修改信息"	# 把暂存区的修改做一次版本记录
 
 
 # 撤销修改

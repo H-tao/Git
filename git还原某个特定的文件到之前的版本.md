@@ -1,8 +1,8 @@
-### 0. 背景
+### 0. 前情提要
 
-提交了多个 commit 之后，发现对某些个文件修改的不满意或者修改错误，想回退到之前的版本。
+提交了多个 commit 之后，发现对**某些个文件**修改的不满意或者修改错误，**想把这某些个文件回退到之前的某个版本**，**但是又不想把整个工作区的内容从版本库中全部恢复**。
 
-比如 `hellopython.py` 文件：
+比如想从版本库中恢复不满意的 `hellopython.py` 文件到工作区：
 
 ```
 git log hellopython.py
@@ -10,12 +10,15 @@ git checkout commitID hellopython.py
 git commit -m "hellopython版本回退" hellopython.py
 ```
 
-### 1. git log 查看版本
+### 1. 操作记录
+
+#### 1. git log 查看版本
 
 **commit 关键字后面的一串值为版本号，复制一下自己想回退的版本号**。比如我想将 hellopython.py 回退到 update1，我复制了   e3d77e3be7d0240b5e696999a17940ec8d1b3b82。
 
 ```bash
-$ git log helloworld.py                                                           commit 3a74c22e0db4c704a3e72f6518ee77266d6cdd19
+$ git log helloworld.py                                                           
+commit 3a74c22e0db4c704a3e72f6518ee77266d6cdd19
 Author: Spade_
 Date:   Tue Sep 1 20:37:58 2020 +0800
 
@@ -46,7 +49,7 @@ Date:   Fri Jun 19 09:23:59 2020 +0800
     加入执行时间
 ```
 
-### 2. git checkout
+#### 2. git checkout
 
 git checkout 用于从暂存区中恢复文件到工作区。此处我们只想恢复某一个版本的 hellopython.py，只需要 `git checkout commitID 文件名` 就可以了。
 
