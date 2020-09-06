@@ -16,13 +16,9 @@ Hotfix分支（紧急bug发布）
 当我们在Production发现新的Bug时候，我们需要创建一个Hotfix, 完成Hotfix后，我们合并回Master和Develop分支，所以Hotfix的改动会进入下一个Release
 ```
 
-```bash
-# git diff <local branch> <remote>/<remote branch>　
-# 显示本地 master 分支和 远程 master 分支文件改动的摘要
-git diff --stat master origin/master  
-```
-
 ### 常用命令
+
+#### 1. git branch 和 git checkout
 
 ```bash
 # 查看帮助
@@ -66,6 +62,8 @@ git branch | grep -E "^  temp" | xargs git branch -D	# 强制删除
 git branch | grep -Ev "master" | xargs git branch -D
 ```
 
+#### 2. git merge
+
 `merge` 默认会将分支与***当前分支***合并。当前分支指的是 `HEAD` 指向的分支，该分支的指向可以在
 
 ```bash
@@ -84,24 +82,51 @@ git status -s	# M 表示冲突已经解决
 git commit -m "conflict"	# 提交解决冲突后的新版本
 ```
 
-`fetch` 默认只将远端更新到remotes/origin，不会更新heads。
+#### 3. git fetch
+
+`fetch` 默认只将远端更新到remotes/origin，**不会更新heads**。
 
 ```bash
 # 将远端更新到remotes/origin，不会更新heads
 git fetch
 git diff HEAD FETCH_HEAD	
 
-# 获取远端的分支，同步远端的dev分支到 remotes/origin/dev 和 heads/temp
+# 获取远端的分支，即同步远端的dev分支到 remotes/origin/dev 和 heads/temp
 git fetch origin dev:temp
 ```
 
-`push` 会同时影响 remotes/origin 和远端
+#### 4. git pull
+
+`pull` 相当于 `fetch`和`merge`，会更新到***当前分支***。
 
 ```bash
-# 提交分支：push分支test到remotes/origin和远端的new_test
-git push origin test:new_test
+# 默认拉取的是与远端HEAD指向的分支，同时合并到本地HEAD指向的当前分支
+git pull 
+
+# 拉取远端dev分支到本地，并合并到当前分支
+git pull origin dev = git fetch origin + git merge origin/dev
+```
+
+#### 5. git push
+
+`push` 会同时影响 remotes/origin 和远端。
+
+```bash
+# 提交分支：push分支master到remotes/origin和远端的master_r
+git push origin master:master_r
 
 # push会同时删除remotes/origin和远端的test
 git push origin --delete test	
 ```
 
+#### 6. git diff
+
+`diff` 查看改动。
+
+```bash
+# git diff <local branch> <remote>/<remote branch>　
+# 显示本地 master 分支和 远程 master 分支文件改动的摘要
+git diff --stat master origin/master  
+```
+
+### 

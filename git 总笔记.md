@@ -22,36 +22,33 @@ git reset --hard HEAD^
 git reflog
 
 
-# 工作区，版本库和暂存区
+# 提交修改
 git add		# 把工作区的修改放入暂存区
 git add -u	# 只add已经追踪过的文件
 git commit -m "修改信息"	# 把暂存区的修改做一次版本记录
 
 
-# 撤销修改
+# 撤销修改，撤销 add 和 commit 操作
 1. 撤销工作区的修改
-git checkout -- <file>
+    git checkout -- <file>
 
 2. 撤销已经add到暂存区，但未commit的修改
-git reset HEAD <file>
-+
-# git checkout -- <file>	# 注意，这会将工作区的修改也撤销，如果不希望撤销工作区的修改则不必使用
+    git reset HEAD <file>
+    +
+    # git checkout -- <file>	# 注意，这会将工作区的修改也撤销，如果不希望撤销工作区的修改则不必使用
 
 3. 已经commit，版本回退至前一版本
+    # 1.git reset --soft 版本号 
+    # 不删除工作区改动的代码，撤销commit，不撤销git add .
+    git reset --soft HEAD^  //回到上一个版本
 
-# 1.git reset --soft 版本号 
-# 不删除工作区改动的代码，撤销commit，不撤销git add .
-git reset --soft HEAD^  //回到上一个版本
+    # 2.git reset --mixed 版本号 
+    # 不删除工作区改动的代码，撤销commit，撤销git add .
+    git reset --mixed HEAD^  //回到上一个版本
 
-
-# 2.git reset --mixed 版本号 
-# 不删除工作区改动的代码，撤销commit，撤销git add .
-git reset --mixed HEAD^  //回到上一个版本
-
-
-# 3.git reset --hard 版本号 
-# 删除工作区的代码，撤销commit，撤销git add . 回到上一次commit的状态
-git reset --hard HEAD^  # 慎用此命令，因为会将工作区的文件也一并修改掉
+    # 3.git reset --hard 版本号 
+    # 删除工作区的代码，撤销commit，撤销git add . 回到上一次commit的状态
+    git reset --hard HEAD^  # 慎用此命令，因为会将工作区的文件也一并修改掉
 
 
 # 对比工作区和版本库文件的不同
@@ -64,8 +61,8 @@ index 8ebeb35..61ef177 100644
  1. This is a code py
 +2. This for git add and git checkout -- file	# 出现+号，说明工作区比HEAD版本多了一行
 
+
 # 对比两个版本库文件的不同
-## 
 [root@i hellogit]# git diff HEAD HEAD^ -- code.py 
 diff --git a/code.py b/code.py
 index 61ef177..8ebeb35 100644
@@ -394,11 +391,9 @@ Untracked files:
 	config/
 ```
 
+### git ssh-key的配置
 
-
-### git shh-key的配置
-
-Linux和Windows都适用
+配置ssh-key，此方法在Linux和Windows都适用。
 
 ```bash
 https://blog.csdn.net/felicity294250051/article/details/53606158
