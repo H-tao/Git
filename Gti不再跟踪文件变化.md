@@ -8,3 +8,5 @@
 只要这样做：
 git update-index --skip-worktree [文件绝对路径]
 即可
+要是需要撤销
+git update-index --no-skip-worktree <file>
