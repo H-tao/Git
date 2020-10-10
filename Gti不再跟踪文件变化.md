@@ -6,7 +6,11 @@
 那么，怎么让git在提交一次配置文件之后就不再跟踪配置文件的变化了呢
 （一般第一次提交的配置文件是脱敏的）
 只要这样做：
+```bash
 git update-index --skip-worktree [文件绝对路径]
+```
 即可
 要是需要撤销
+```bash
 git update-index --no-skip-worktree <file>
+```
